@@ -3,8 +3,9 @@ export default class TabNavegation {
     this.tab = document.querySelectorAll(list);
     this.tabText = document.querySelectorAll(content);
     this.active = "active";
-    // tabText[0].classList.add(this.active);
   }
+
+  // adiciona a classe ativa para o item clicado de acordo com o index
 
   activeTab(idx) {
     const direction = this.tabText[idx].dataset.anime;
@@ -21,6 +22,8 @@ export default class TabNavegation {
       item.addEventListener("click", () => this.activeTab(idx));
     });
   }
+
+  // Inicia a navegação de tabs
 
   init() {
     this.tab && this.tabText
