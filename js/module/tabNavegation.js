@@ -29,5 +29,6 @@ export default class TabNavegation {
     this.tab && this.tabText
       ? (this.addEventTab(),this.activeTab(0))
       : null;
+    return this
   }
 }
