@@ -13,14 +13,6 @@ import initAnimationScroll from "./module/animationScroll.js";
 const ScrollSuave = new Scroll('[data-menu="suave"] a[href^="#"]');
 const AccordionList = new Accordion("[data-anime='accordion'] dt");
 
-// import { testando, testando2 } from "./module/test.js";
-// import * as teste from "./module/test.js";
-// testando();
-// testando2();
-
-// console.log(teste)
-// teste.testando();
-// teste.testando2();
 
 ScrollSuave.init();
 AccordionList.init();
