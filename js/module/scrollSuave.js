@@ -1,14 +1,21 @@
-export default function initScroll() {
-  const linksInternos = document.querySelectorAll('[data-menu="suave"] a[href^="#"]');
+export default class Scroll {
+  constructor(links, options) {
+    this.linksInternos = document.querySelectorAll(links);
+    options === undefined ? (this.options = {behavior: "smooth",block: "start",})
+    : this.options = options;
 
-  function scrollToSection(ev) {
+    this.scrollToSection = this.scrollToSection.bind(this)
+  }
+
+  scrollToSection(ev) {
     ev.preventDefault();
     const href = ev.currentTarget.getAttribute("href");
     const section = document.querySelector(href);
-    section.scrollIntoView({
-      behavior: "smooth",
-      block: "start",
-    });
+    section.scrollIntoView(this.options);
+    // section.scrollIntoView({
+    //   behavior: "smooth",
+    //   block: "start",
+    // });
     // * Scroll alternativo
     // const top = section.offsetTop;
     // window.scrollTo({
@@ -17,8 +24,13 @@ export default function initScroll() {
     // });
     // console.log(href, section);
   }
-
-  linksInternos.forEach((link) =>
-    link.addEventListener("click", scrollToSection)
-  );
+  addLinkEvent() {
+    this.linksInternos.forEach((link) =>
+      link.addEventListener("click", this.scrollToSection)
+    );
+  }
+  init() {
+    this.linksInternos.length ? this.addLinkEvent() : false;
+    return this
+  }
 }
