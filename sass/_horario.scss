@@ -1,0 +1,49 @@
+.dados li:last-child{
+  &.opening::before{
+    background: #0ddb0d;
+    animation: opening 4s ease-in-out infinite;
+  }
+  &.closed::before{
+    background: red;
+    animation: closed 4s ease-in-out infinite;
+
+  }
+  
+}
+.btcPreco{
+  padding: 4px 8px;
+  font-weight: bold;
+  border-radius: 3px;
+  background: #0ddb0d;
+  // animation: opening 4s ease-in-out infinite;
+  
+}
+
+@keyframes opening{
+  0%{
+    box-shadow: 0 0 25px #0ddb0d,0 0 20px #0ddb0d,0 0 25px #0ddb0d;
+
+  }
+  50%{
+    box-shadow: 0 0 5px #0ddb0d,0 0 10px #0ddb0d,0 0 15px #0ddb0d;
+  }
+  100%{
+    
+    box-shadow: 0 0 25px #0ddb0d,0 0 20px #0ddb0d,0 0 25px #0ddb0d;
+
+  }
+}
+@keyframes closed{
+  0%{
+    box-shadow: 0 0 25px red,0 0 20px red,0 0 25px red;
+
+  }
+  50%{
+    box-shadow: 0 0 5px red,0 0 10px red,0 0 15px red;
+  }
+  100%{
+    
+    box-shadow: 0 0 25px red,0 0 20px red,0 0 25px red;
+
+  }
+}
