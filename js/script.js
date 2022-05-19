@@ -25,8 +25,3 @@ initFuncionamento();
 initFetchAnimais();
 initFetchBtc();
 initAnimationScroll();
-
-// import $ from "jquery";
-// import _ from "lodash";
-
-// $('nav').hide()
