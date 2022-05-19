@@ -1,22 +1,43 @@
-export default function initModal() {
-  const btnOpen = document.querySelector('[data-modal="open"]');
-  const btnClose = document.querySelector('[data-modal="close"]');
-  const modalContainer = document.querySelector(".modalContainer");
+export default class Modal {
+  constructor(open, close, container) {
+    this.btnOpen = document.querySelector(open);
+    this.btnClose = document.querySelector(close);
+    this.modalContainer = document.querySelector(container);
+    this.active = "active";
 
-  if (btnClose && btnClose && modalContainer) {
-    const handleModalToggle = (ev) => {
-      ev.preventDefault();
-      modalContainer.classList.toggle("active");
-    };
 
-    const outSideClick = ({ target }) => {
-      target.closest(".modal")
-        ? null
-        : modalContainer.classList.remove("active");
-    };
+    // bind this ao callback para fazer referencia ao objeto da classe
+    this.evToggleModal = this.evToggleModal.bind(this);
+    this.outSideClick = this.outSideClick.bind(this);
+  }
 
-    btnOpen.onclick = handleModalToggle;
-    btnClose.onclick = handleModalToggle;
-    modalContainer.onclick = outSideClick;
+  // adiciona a classe active ao container quando o modal para abrir o modal e retira a classe para fechar o modal
+  handleModalToggle() {
+    this.modalContainer.classList.toggle(this.active);
+  }
+
+  evToggleModal(ev) {
+    ev.preventDefault();
+    this.handleModalToggle();
+  }
+
+  // fecha o modal ao clicar fora dele
+
+  outSideClick() {
+    this.modalContainer.closest(".modal")
+      ? null
+      : this.modalContainer.classList.remove(this.active);
+  };
+
+  eventsModal() {
+    this.btnOpen.onclick = this.evToggleModal;
+    this.btnClose.onclick = this.evToggleModal;
+    this.modalContainer.onclick = this.outSideClick;
+  }
+
+  init() {
+    if (this.btnOpen && this.btnClose && this.modalContainer) {
+      this.eventsModal();
+    }
   }
 }

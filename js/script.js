@@ -1,7 +1,7 @@
 import Scroll from "./module/scrollSuave.js";
 import Accordion from "./module/accordion.js";
 import TabNavegation from "./module/tabNavegation.js";
-import initModal from "./module/modal.js";
+import Modal from "./module/modal.js";
 import initTooltip from "./module/tooltip.js";
 import initDropdown from "./module/dropDown.js";
 import initMenuMobile from "./module/menuMobile.js";
@@ -10,14 +10,15 @@ import initFetchAnimais from "./module/fetchAnimais.js";
 import initFetchBtc from "./module/fetchBtc.js";
 import initAnimationScroll from "./module/animationScroll.js";
 
-const ScrollSuave = new Scroll('[data-menu="suave"] a[href^="#"]');
-const AccordionList = new Accordion("[data-anime='accordion'] dt");
-const TabNav = new TabNavegation("[data-tab='menu'] li","[data-tab='content'] section")
+const scrollSuave = new Scroll('[data-menu="suave"] a[href^="#"]');
+const accordionList = new Accordion("[data-anime='accordion'] dt");
+const tabNav = new TabNavegation("[data-tab='menu'] li","[data-tab='content'] section")
+const modalLogin = new Modal ("[data-modal='open']", "[data-modal='close']", ".modalContainer");
 
-ScrollSuave.init();
-AccordionList.init();
-TabNav.init();
-initModal();
+scrollSuave.init();
+accordionList.init();
+tabNav.init();
+modalLogin.init()
 initTooltip();
 initDropdown();
 initMenuMobile();
