@@ -5,8 +5,8 @@ export default class Modal {
     this.modalContainer = document.querySelector(container);
     this.active = "active";
 
-
     // bind this ao callback para fazer referencia ao objeto da classe
+
     this.evToggleModal = this.evToggleModal.bind(this);
     this.outSideClick = this.outSideClick.bind(this);
   }
@@ -27,7 +27,9 @@ export default class Modal {
     this.modalContainer.closest(".modal")
       ? null
       : this.modalContainer.classList.remove(this.active);
-  };
+  }
+
+  // adiciona os eventos nos botoes de abrir e fechar o modal
 
   eventsModal() {
     this.btnOpen.onclick = this.evToggleModal;
