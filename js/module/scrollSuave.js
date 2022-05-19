@@ -12,17 +12,6 @@ export default class Scroll {
     const href = ev.currentTarget.getAttribute("href");
     const section = document.querySelector(href);
     section.scrollIntoView(this.options);
-    // section.scrollIntoView({
-    //   behavior: "smooth",
-    //   block: "start",
-    // });
-    // * Scroll alternativo
-    // const top = section.offsetTop;
-    // window.scrollTo({
-    //   top: top,
-    //   behavior: "smooth",
-    // });
-    // console.log(href, section);
   }
   addLinkEvent() {
     this.linksInternos.forEach((link) =>

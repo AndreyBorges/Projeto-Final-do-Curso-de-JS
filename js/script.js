@@ -1,6 +1,5 @@
 import Scroll from "./module/scrollSuave.js";
-import initAnimationScroll from "./module/animationScroll.js";
-import initAccordion from "./module/accordion.js";
+import Accordion from "./module/accordion.js";
 import initTabNavegation from "./module/tabNavegation.js";
 import initModal from "./module/modal.js";
 import initTooltip from "./module/tooltip.js";
@@ -9,6 +8,11 @@ import initMenuMobile from "./module/menuMobile.js";
 import initFuncionamento from "./module/funcionamento.js";
 import initFetchAnimais from "./module/fetchAnimais.js";
 import initFetchBtc from "./module/fetchBtc.js";
+import initAnimationScroll from "./module/animationScroll.js";
+
+const ScrollSuave = new Scroll('[data-menu="suave"] a[href^="#"]');
+const AccordionList = new Accordion("[data-anime='accordion'] dt");
+
 // import { testando, testando2 } from "./module/test.js";
 // import * as teste from "./module/test.js";
 // testando();
@@ -17,10 +21,9 @@ import initFetchBtc from "./module/fetchBtc.js";
 // console.log(teste)
 // teste.testando();
 // teste.testando2();
-const ScrollSuave = new Scroll('[data-menu="suave"] a[href^="#"]')
+
 ScrollSuave.init();
-initAnimationScroll();
-initAccordion();
+AccordionList.init();
 initTabNavegation();
 initModal();
 initTooltip();
@@ -28,7 +31,8 @@ initDropdown();
 initMenuMobile();
 initFuncionamento();
 initFetchAnimais();
-initFetchBtc()
+initFetchBtc();
+initAnimationScroll();
 
 // import $ from "jquery";
 // import _ from "lodash";
