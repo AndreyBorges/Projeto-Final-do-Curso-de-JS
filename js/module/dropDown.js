@@ -7,8 +7,9 @@ export default class Dropdown {
 
     // define como touchstart ou click como padrão dos events caso não seja passado nenhum
 
-    this.events = ["touchstart", "click"];
-    evts === undefined ? this.events : this.events = evts;
+    evts === undefined
+      ? (this.events = ["touchstart", "click"])
+      : (this.events = evts);
     // bind do dropdown
 
     this.activeDropdown = this.activeDropdown.bind(this);
