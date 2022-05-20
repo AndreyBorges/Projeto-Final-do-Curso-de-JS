@@ -1,11 +1,42 @@
-export default function initFuncionamento() {
-  const funcionamentoDia = document.querySelector('[data-semana]')
-  const diasDaSemana = funcionamentoDia.dataset.semana.split(',').map(Number)
-  const funcionamentoHora = funcionamentoDia.dataset.horario.split(',').map(Number)
-  const diaAgora = new Date().getDay()
-  const horaAgora = new Date().getHours()
-  const diaUtil = diasDaSemana.indexOf(diaAgora) !== -1
-  const horaUtil = horaAgora >= funcionamentoHora[0] && horaAgora < funcionamentoHora[1]
+export default class Funcionamento {
+  constructor(elm, open, close) {
+    this.funcionamentoDia = document.querySelector(elm);
+    this.open = open;
+    this.close = close;
+  }
 
-  diaUtil && horaUtil ? funcionamentoDia.classList.add('opening') : funcionamentoDia.classList.add('closed')
+  dadosFuncionamento() {
+    this.diasDaSemana = this.funcionamentoDia.dataset.semana
+      .split(",")
+      .map(Number);
+    this.funcionamentoHora = this.funcionamentoDia.dataset.horario
+      .split(",")
+      .map(Number);
+  }
+
+  dataAgora() {
+    this.diaAgora = new Date().getDay();
+    this.horaAgora = new Date().getUTCHours() - 3;
+  }
+
+  aberto() {
+    this.diaUtil = this.diasDaSemana.indexOf(this.diaAgora) !== -1;
+    this.horaUtil =
+      this.horaAgora >= this.funcionamentoHora[0] &&
+      this.horaAgora < this.funcionamentoHora[1];
+    return this.diaUtil && this.horaUtil;
+  }
+
+  ativaAberto() {
+    this.aberto()
+      ? this.funcionamentoDia.classList.add(this.open)
+      : this.funcionamentoDia.classList.add(this.close);
+  }
+
+  init() {
+    this.funcionamentoDia
+      ? (this.dadosFuncionamento(), this.dataAgora(), this.ativaAberto())
+      : null;
+    return this;
+  }
 }
