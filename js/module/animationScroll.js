@@ -8,6 +8,8 @@ export default class AnimationScroll {
     this.checkDistance = this.checkDistance.bind(this);
   }
 
+  // pega a distancia do elemento até o topo da pagina
+
   getDistance() {
     this.distance = [...this.sections].map((section) => {
       const offset = section.offsetTop;
@@ -17,6 +19,8 @@ export default class AnimationScroll {
       };
     });
   }
+
+  // verifica a distancia de cada section de acordo com a posição do scroll do site e adiciona uma class
 
   checkDistance() {
     this.distance.forEach((item) => {
@@ -36,6 +40,8 @@ export default class AnimationScroll {
       : null;
     return this;
   }
+
+  // remove o evento de srcoll
 
   stop() {
     window.removeEventListener("scroll", this.checkDistance);
