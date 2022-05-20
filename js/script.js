@@ -6,7 +6,7 @@ import Tooltip from "./module/tooltip.js";
 import initDropdown from "./module/dropDown.js";
 import initMenuMobile from "./module/menuMobile.js";
 import initFuncionamento from "./module/funcionamento.js";
-import initFetchAnimais from "./module/fetchAnimais.js";
+import fetchAnimais from "./module/fetchAnimais.js";
 import initFetchBtc from "./module/fetchBtc.js";
 import initAnimationScroll from "./module/animationScroll.js";
 
@@ -21,9 +21,9 @@ accordionList.init();
 tabNav.init();
 modalLogin.init()
 tooltip.init();
+fetchAnimais('../../dataAnimais.json','.gridNumbers');
 initDropdown();
 initMenuMobile();
 initFuncionamento();
-initFetchAnimais();
 initFetchBtc();
 initAnimationScroll();
