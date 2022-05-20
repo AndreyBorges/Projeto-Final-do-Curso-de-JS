@@ -33,7 +33,7 @@ tabNav.init();
 modalLogin.init();
 tooltip.init();
 animationScroll.init();
-fetchAnimais("../../dataAnimais.json", ".gridNumbers");
+fetchAnimais("./dataAnimais.json", ".gridNumbers");
 fetchBtc("https://blockchain.info/ticker", ".btcPreco");
 dropdown.init();
 menuMobile.init();
