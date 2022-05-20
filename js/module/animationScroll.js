@@ -1,11 +1,13 @@
+import debounce from "./debouce.js";
+
 export default class AnimationScroll {
   constructor(elms) {
     this.sections = document.querySelectorAll(elms);
     this.windowHalf = window.innerHeight * 0.6;
 
-    // bind do this do anima scroll
+    // bind do this do anima scroll e aplicando o debounce para não ficar chamando a função toda vez que a página é rolada
 
-    this.checkDistance = this.checkDistance.bind(this);
+    this.checkDistance = debounce(this.checkDistance.bind(this), 50);
   }
 
   // pega a distancia do elemento até o topo da pagina
