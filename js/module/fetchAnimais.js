@@ -1,4 +1,4 @@
-import initNumbers from "./numbers.js";
+import Numbers from "./numbers.js";
 
 export default function initFetchAnimais() {
   async function fetchAnimais(url) {
@@ -10,7 +10,8 @@ export default function initFetchAnimais() {
         const animalSpecies = createElement(animal.specie, animal.total);
         gridNumbers.appendChild(animalSpecies);
       });
-      initNumbers();
+      const numbers = new Numbers('[data-number]','.numbers', 'active');
+      numbers.init();
     } catch (error) {
       console.log(error);
     }
